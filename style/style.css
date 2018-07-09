@@ -1,0 +1,43 @@
+
+@font-face {
+  font-family: 'bigNoodle';
+  src:
+   url('../fonts/font.eot')
+   format('opentype');
+
+  src:
+	url('../fonts/font.ttf')
+  format('truetype');
+}
+
+body, html{
+  font-family: 'bigNoodle', sans-serif;
+
+  height: 100%;
+  margin: 0;
+  background-image: url("../img/stage.png");
+  background-size: cover;
+
+cursor: crosshair;
+}
+
+.HUD
+{
+
+  font-size: 50px;
+
+}
+
+
+.logo{
+height:200px;
+width: auto;
+}
+
+.size{
+height:200;
+width:auto
+
+
+
+}
