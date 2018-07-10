@@ -75,6 +75,8 @@ button {
     cursor:pointer;
     overflow: hidden;
     outline:none;
+    font-family: 'bigNoodle', sans-serif;
+font-size: 80px;
 }
 
 
