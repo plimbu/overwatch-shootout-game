@@ -13,8 +13,14 @@
 
 img{
 
+  //click function for modal to restart game
+  restart.click(function(){
+    playerScore = 0;
+    timeLeft = 30;
+    console.log("hello")
+  })
 
-  width:200px;
+
 }
 
 body, html{
@@ -35,6 +41,11 @@ user-select: none;
   font-size: 50px;
 
 }
+/* center text with this class */
+.center{
+text-align: center;
+
+}
 
 
 .logo{
@@ -43,8 +54,7 @@ width: auto;
 }
 
 .size{
-height:200;
-width:auto
+
 
 }
 
@@ -55,6 +65,8 @@ width:auto
 .score{
 
 }
+
+
 /* make button transparent */
 button {
     background-color: Transparent;
@@ -64,11 +76,17 @@ button {
     overflow: hidden;
     outline:none;
 }
+
+
+
+
+
+
 /* modal  */
 
 
 .modal {
-    display: none; /* Hidden by default */
+    display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
