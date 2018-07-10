@@ -1,126 +1,122 @@
-
 @font-face {
   font-family: 'bigNoodle';
-  src:
-   url('../fonts/font.eot')
-   format('opentype');
-
-  src:
-	url('../fonts/font.ttf')
-  format('truetype');
+  src: url('../fonts/font.eot') format('opentype');
+  src: url('../fonts/font.ttf') format('truetype');
 }
 
-
-img{
-
+img {
   //click function for modal to restart game
-  restart.click(function(){
-    playerScore = 0;
-    timeLeft = 30;
+  restart.click(function() {
+    playerScore=0;
+    timeLeft=30;
     console.log("hello")
-  })
-
-
+  }
+  )
 }
 
-body, html{
-  font-family: 'bigNoodle', sans-serif;
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 
+body, html {
+  font-family: 'bigNoodle', sans-serif;
   height: 100%;
   margin: 0;
-  background-image: url("../img/stage.png");
   background-size: cover;
-
-cursor: crosshair;
-user-select: none;
+  cursor: crosshair;
+  user-select: none;
 }
 
-.HUD
-{
-
+.HUD {
   font-size: 50px;
-
 }
+
 /* center text with this class */
-.center{
-text-align: center;
 
+.center {
+  text-align: center;
 }
 
-
-.logo{
-height:200px;
-width: auto;
+.logo {
+  height: 200px;
+  width: auto;
+  /* makes the characters appear above the logo */
+  z-index: -1;
 }
 
-.size{
+.size {}
 
+.timer {}
 
-}
-
-.timer{
-
-}
-
-.score{
-
-}
-
+.score {}
 
 /* make button transparent */
+
 button {
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
-    font-family: 'bigNoodle', sans-serif;
-font-size: 80px;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  font-family: 'bigNoodle', sans-serif;
+  font-size: 80px;
 }
 
-
-
-
-
+.sizeInstructions {
+  font-size: 60px;
+}
 
 /* modal  */
 
-
 .modal {
-    display: block; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  display: block;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  opacity: 0.8;
+  filter: alpha(opacity=90);
+  /* For IE8 and earlier */
 }
 
 /* Modal Content */
+
 .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
 }
 
 /* The Close Button */
+
 .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
