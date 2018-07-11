@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'bigNoodle';
+  src: url('../fonts/font.eot') format('opentype');
+  src: url('../fonts/font.ttf') format('truetype');
+}
+
+img {
+  //click function for modal to restart game
+  restart.click(function() {
+    playerScore=0;
+    timeLeft=30;
+    console.log("hello")
+  }
+  )
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+body, html {
+  font-family: 'bigNoodle', sans-serif;
+  height: 100%;
+  margin: 0;
+  background-image: url("../img/menu.jpg");
+  background-size: cover;
+  cursor: crosshair;
+  user-select: none;
+}
+
+.HUD {
+  font-size: 50px;
+}
+
+/* center text with this class */
+
+.center {
+  text-align: center;
+}
+
+.logo {
+  height: 200px;
+  width: auto;
+  /* makes the characters appear above the logo */
+  z-index: -1;
+}
+
+/* make button transparent */
+
+button {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  font-family: 'bigNoodle', sans-serif;
+  font-size: 80px;
+}
+
+.sizeInstructions {
+  font-size: 50px;
+  text-decoration-color: orange;
+}

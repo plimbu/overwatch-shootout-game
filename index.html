@@ -6,7 +6,10 @@
   <link href="css/bootstrap.css" rel="stylesheet" />
 
   <link href="css/bootstrap-theme.css" rel="stylesheet" />
-<link rel="stylesheet" href="style/style.css">
+
+
+
+  <link rel="stylesheet" href="style/style.css">
   <script src="deps/jquery.js">
   </script>
   <script src="style/game.js">
@@ -16,117 +19,74 @@
 
   <title></title>
 
-<body>
+  <body>
 
-<!-- background img -->
-<div class="bg"></div>
+    <audio id="kill" src="kill.mp3">
 
+  </audio>
+    <audio id="voice" src="voice.mp3">
 
-
-  <!--logo  container -->
-  <div class="container-fluid">
-  <div class="row HUD">
-    <div class="col-md-4">
-SCORE
-    </div>
-
-    <div class="col-md-4">
-      <img class="logo" src="img/logo.png" alt="logo">
-
-    </div>
-
-TIMER
-    <div class="col-md-4">
-
-    </div>
-  </div>
-  <!-- logo end -->
+</audio>
+    <audio id="audio" src="music.mp3" type="audio/mpeg"></audio>
 
 
 
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content HUD">
+        <span class="close">&times;</span>
+
+        <p class="score"> </p>
+
+        <p class="center">Main Menu</p>
+        <button class="play"> Play </button>
+        <br> <button class="restart"> Restart </button><br>
+        <a class="center" href="C:\Users\TECH-W79\Documents\engineering-13\Big Projects\overwatch-shootout-game\instructions.html"><button>Instructions</button></a>
 
 
-  <!--main  container -->
-  <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-4 size">
-
-  1
-    </div>
-
-    <div class="col-md-4 size">
-2    </div>
-
-
-    <div class="col-md-4 size">
-  3
-    </div>
-  </div>
-
-
-<!-- row2 -->
-  <div class="row">
-    <div class="col-md-4 size">
-
-  4
-    </div>
-
-    <div class="col-md-4 size">
-  5
-    </div>
-
-
-    <div class="col-md-4 size">
-  6
-    </div>
-  </div>
-
-
-  <!-- row2 -->
-    <div class="row">
-      <div class="col-md-4 size">
-
-    7
       </div>
 
-      <div class="col-md-4 size">
-    8
-      </div>
-
-
-      <div class="col-md-4 size">
-    9
-      </div>
     </div>
 
 
 
-    <!-- row2 -->
-      <div class="row">
-        <div class="col-md-4 size">
 
-      10
+
+    <!-- endmodal -->
+
+
+
+    <!-- background img -->
+    <div class="bg"></div>
+
+
+
+    <!-- img pop up div -->
+
+
+
+
+    <!--logo  container -->
+    <div class="container-fluid">
+      <div class="row HUD">
+        <div class="col-md-4 score ">
+          SCORE
         </div>
 
-        <div class="col-md-4 size">
-      11
+        <div class="col-md-4">
+          <!-- Trigger/Open The Modal -->
+          <button id="myBtn"> <img class="logo" src="img/logo.png" alt="logo"></button>
+
         </div>
 
 
-        <div class="col-md-4 size">
-      12
+        <div class="col-md-4 timer">
+          TIMER
         </div>
       </div>
-
-
-
-
-
-
-  </div>
-
-
-<!-- container end -->
+      <!-- logo end -->
 
 
 
@@ -136,10 +96,24 @@ TIMER
 
 
 
-  <!-- end of body -->
-  <script src="js/bootstrap.min.js"></script>
+
+    </div>
 
 
-</body>
+    <!-- container end -->
+
+
+
+
+
+    <div class="img size">
+    </div>
+
+
+
+    <!-- end of body -->
+
+
+  </body>
 
 </html>
