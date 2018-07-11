@@ -15,7 +15,7 @@ $(document).ready(function() {
   var imgSize = $(".size");
   var restart = $(".restart");
   //TIMER
-  var timeLeft = 30; //120 seconds timer for player
+  var timeLeft = 0; //120 seconds timer for player
   setInterval(function countDown() {
     if (timeLeft != 0) {
       timeLeft--;
@@ -25,7 +25,6 @@ $(document).ready(function() {
       $(".img img:last-child").remove()
 
       playGame = false;
-      timeLeft = 30;
       playerScore = 0;
       modal.style.display = "block";
       clearInterval(interval);
@@ -68,6 +67,7 @@ $(document).ready(function() {
   function generateRandomForBG() {
     var num = Math.floor(Math.random() * 5);
     return num;
+    console.log(num);
   }
   //generate random position values for top
   function generateRandom() {
@@ -131,7 +131,10 @@ $(document).ready(function() {
   //clicking on image gets score and removes picture of enemy
   img.click(function() {
     kill.play(); //plays kill sound
-
+if (timeLeft ==0)
+{
+  playerScore =0;
+}
 
     playerScore++;
     score.html("<b>Score: " + playerScore + " </b>");
@@ -152,6 +155,9 @@ $(document).ready(function() {
 
   //play button
   play.click(function() {
+    playerScore = 0;
+
+
     var click = false;
     if (click === false) {
       click = true;
@@ -161,7 +167,6 @@ $(document).ready(function() {
       click = false;
     }
 
-    playerScore = 0;
     var audio = document.getElementById("audio");
     audio.play();
 
