@@ -29,8 +29,15 @@ var highScore =0;//highscore
   var img = $(".img");
   var imgSize = $(".size");
   var restart = $(".restart");
+  var clearScore =$(".clearScore");
   //TIMER
   var timeLeft = 0; //120 seconds timer for player
+
+
+
+
+
+  //timer
   setInterval(function countDown() {
     if (timeLeft != 0) {
       timeLeft--;
@@ -48,7 +55,7 @@ var highScore =0;//highscore
       //if statement to update highscore
       if (playerScore>highScore)
       {
-
+//delete previous high score array text
           $('#test').html("");
 
 
@@ -74,7 +81,7 @@ var highScore =0;//highscore
 
 
 
-
+//remove image of last enemy
       $(".img img:last-child").remove()
 
       playGame = false;
@@ -82,6 +89,10 @@ var highScore =0;//highscore
 
       modal.style.display = "block";
       timer.html("<b class='timer'>Timer: " + timeLeft + " </b>");
+
+
+
+
 
     } else {
       timer.html("<b>Timer: " + timeLeft + " </b>");
@@ -305,14 +316,12 @@ var a =true;
   }
 
 
-/*
-  //store variables in window memory
 
-  window.localStorage;
-  localStorage.setItem("Score",playerScore);
-  var test = localStorage.getItem("Score");
+//clears leaderboard scores
+clearScore.click(function(){
+  localStorage.removeItem('names');
+  $('#test').html("");
 
-
-*/
+})
 
 });

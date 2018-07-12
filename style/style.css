@@ -27,8 +27,12 @@ body, html {
   overflow-x: hidden;
   overflow-y: hidden;
 }
+/* styling for clear score button */
+.clearScore
+{
+font-size: 20px
 
-
+}
 .text
 {
   font-size: 20px;
