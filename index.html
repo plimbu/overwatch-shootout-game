@@ -21,6 +21,12 @@
 
   <body>
 
+
+
+
+
+
+
     <audio id="kill" src="kill.mp3">
 
   </audio>
@@ -35,15 +41,23 @@
     <div id="myModal" class="modal">
 
       <!-- Modal content -->
-      <div class="modal-content HUD">
+      <div class="modal-content ">
         <span class="close">&times;</span>
+<div class="text">
+  highscore
+</div>
+<!-- test local storage  -->
+<div id="test" >
 
-        <p class="score"> </p>
+</div>
 
-        <p class="center">Main Menu</p>
-        <button class="play"> Play </button>
-        <br> <button class="restart"> Restart </button><br>
-        <a class="center" href="instructions.html"><button>Instructions</button></a>
+        <a class="center mercy"> <img class="" src="img/top.gif" alt="mercy">  </a><br>
+
+      <a class="center">  <button id="button" class="play "> Play </button></a><br>
+         <a class="center"><button id="button" class="restart "> Restart </button></a><br>
+        <a class="center" href="instructions.html "><button id="button" >Instructions</button></a><br>
+
+
 
 
       </div>
@@ -71,18 +85,22 @@
     <!--logo  container -->
     <div class="container-fluid">
       <div class="row HUD">
-        <div class="col-md-4 score ">
+        <div id="button" class="col-md-2 score ">
           SCORE
         </div>
+        <div class="col-md-2">
 
+        </div>
         <div class="col-md-4">
           <!-- Trigger/Open The Modal -->
           <button id="myBtn"> <img class="logo" src="img/logo.png" alt="logo"></button>
 
         </div>
+        <div class="col-md-2">
 
+        </div>
 
-        <div class="col-md-4 timer">
+        <div id="button" class="col-md-2 timer" >
           TIMER
         </div>
       </div>

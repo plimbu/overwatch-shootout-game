@@ -3,6 +3,21 @@ $(document).ready(function() {
     event.preventDefault();
   });
 
+//storage variables
+
+var names =[];
+var storedNames;
+storedNames = JSON.parse(localStorage.getItem("names"));
+
+
+
+
+//audio selectors
+var voice = document.getElementById("voice");
+var kill = document.getElementById("kill");
+var audio = document.getElementById("audio");
+var highScore =0;//highscore
+
 
   //only true when game is playing
   var playGame = false;
@@ -22,12 +37,51 @@ $(document).ready(function() {
     }
 
     if (timeLeft == 0) { //remove image
+
+
+
+          //push score to leaderboard
+          //get the highest score and push it to leader board only if it's
+          //higher than current score
+
+
+      //if statement to update highscore
+      if (playerScore>highScore)
+      {
+
+          $('#test').html("");
+
+
+        localStorage.setItem("names", JSON.stringify(names));
+      names.push(playerScore)//add score
+        // names[0]=playerScore;
+        localStorage.setItem("names", JSON.stringify(names));
+        storedNames = JSON.parse(localStorage.getItem("names"));
+
+          highScore=playerScore;
+
+          for( var i =0; i< (storedNames.length); i++)
+          {
+            $('#test').append("<h1>"+storedNames[i]+"</h1>")
+            //  document.getElementById("test").innerHTML = storedNames[i];
+            }
+
+
+        }
+
+
+      //end of add highscore function
+
+
+
+
       $(".img img:last-child").remove()
 
       playGame = false;
-      playerScore = 0;
+      clearInterval(timerId);
+
       modal.style.display = "block";
-      clearInterval(interval);
+      timer.html("<b class='timer'>Timer: " + timeLeft + " </b>");
 
     } else {
       timer.html("<b>Timer: " + timeLeft + " </b>");
@@ -67,7 +121,6 @@ $(document).ready(function() {
   function generateRandomForBG() {
     var num = Math.floor(Math.random() * 5);
     return num;
-    console.log(num);
   }
   //generate random position values for top
   function generateRandom() {
@@ -107,37 +160,39 @@ $(document).ready(function() {
         "width": size + "px",
         "height": size + "px"
       });
-      /*
-      setTimeout(function(){;
-      }, 1000);
-      */
+
     }
 
   }
 
-  var voice = document.getElementById("voice");
-
-  var kill = document.getElementById("kill");
 
 
+//restart audio on click
+  function audioPlay() {
+      if (snd.paused) {
+          snd.play();
+      }else{
+          snd.currentTime = 0
+      }
+  }
 
 
 
-
-
-
+  var snd = new Audio("kill.mp3");
   //clearInterval(interval);
 
   //clicking on image gets score and removes picture of enemy
   img.click(function() {
-    kill.play(); //plays kill sound
+    audioPlay()//plays kill sound
+
 if (timeLeft ==0)
 {
   playerScore =0;
 }
 
     playerScore++;
-    score.html("<b>Score: " + playerScore + " </b>");
+    score.html("<b  class='score'> Score: " + playerScore + " </b>");
+
     $(".img img:last-child").remove()
   })
 
@@ -149,42 +204,66 @@ if (timeLeft ==0)
 
 
 
+var timerId = 0;
 
+function setResetInterval(bool){
+
+  if(bool){
+timerId = setInterval(function() {setValue();}, 1000)
+  }else{
+    clearInterval(timerId);
+  }
+}
+
+
+
+
+
+
+
+//set first highscore to 0
+//storedNames = highScore;
+
+
+$('#test').append("<h1>"+storedNames+"</h1>")
 
 
 
   //play button
   play.click(function() {
+
+
+
+
+
+
+
     playerScore = 0;
 
+    score.html("<b  class='score'> Score: " + playerScore + " </b>");
 
-    var click = false;
-    if (click === false) {
-      click = true;
-    } else {
-      clearInterval(interval);
 
-      click = false;
-    }
-
-    var audio = document.getElementById("audio");
+//play main audiom (overwatch win music)
     audio.play();
 
 
     if (playGame == false) {
-      var interval = setInterval(function() {
-        setValue();
-      }, 1000);
+
+
+      setResetInterval(true);
+
 
       playGame = true;
+
     } else {
-      playGame = false;
+      setResetInterval(false);
+playGame =false;
+
     }
     playerScore = 0;
     timeLeft = 30;
     //does my main function for popping image up in interval
-
-
+var a =true;
 
     //close modal
     modal.style.display = "none";
@@ -226,6 +305,14 @@ if (timeLeft ==0)
   }
 
 
+/*
+  //store variables in window memory
 
+  window.localStorage;
+  localStorage.setItem("Score",playerScore);
+  var test = localStorage.getItem("Score");
+
+
+*/
 
 });
