@@ -3,20 +3,24 @@ $(document).ready(function() {
     event.preventDefault();
   });
 
-//storage variables
 
-var names =[];
-var storedNames;
-storedNames = JSON.parse(localStorage.getItem("names"));
-
+  var home = new Audio("start.mp3");
+setTimeout(  function(){$('body,html').addClass("load");
+home.play()
 
 
-
-//audio selectors
-var voice = document.getElementById("voice");
-var kill = document.getElementById("kill");
-var audio = document.getElementById("audio");
-var highScore =0;//highscore
+}, 500);
+  var names = [];
+  var storedNames;
+  storedNames = JSON.parse(localStorage.getItem("names"));
+  var highScore = 0; //highscore
+  if (storedNames != null) {
+    highScore = storedNames[storedNames.length - 1];
+  }
+  //audio selectors
+  var voice = document.getElementById("voice");
+  var kill = document.getElementById("kill");
+  var audio = document.getElementById("audio");
 
 
   //only true when game is playing
@@ -29,7 +33,7 @@ var highScore =0;//highscore
   var img = $(".img");
   var imgSize = $(".size");
   var restart = $(".restart");
-  var clearScore =$(".clearScore");
+  var clearScore = $(".clearScore");
   //TIMER
   var timeLeft = 0; //120 seconds timer for player
 
@@ -47,41 +51,39 @@ var highScore =0;//highscore
 
 
 
-          //push score to leaderboard
-          //get the highest score and push it to leader board only if it's
-          //higher than current score
+
+      //push score to leaderboard
+      //get the highest score and push it to leader board only if it's
+      //higher than current score
 
 
       //if statement to update highscore
-      if (playerScore>highScore)
-      {
-//delete previous high score array text
-          $('#test').html("");
+      if (playerScore > highScore) {
+        //delete previous high score array text
 
 
         localStorage.setItem("names", JSON.stringify(names));
-      names.push(playerScore)//add score
+        names.push(playerScore) //add score
         // names[0]=playerScore;
         localStorage.setItem("names", JSON.stringify(names));
         storedNames = JSON.parse(localStorage.getItem("names"));
 
-          highScore=playerScore;
+        highScore = playerScore;
 
-          for( var i =0; i< (storedNames.length); i++)
-          {
-            $('#test').append("<h1>"+storedNames[i]+"</h1>")
-            //  document.getElementById("test").innerHTML = storedNames[i];
-            }
-
-
+        for (var i = 0; i < (storedNames.length); i++) {
+          $('#test').append("<h1>" + storedNames[i] + "\n </h1>")
+          //  document.getElementById("test").innerHTML = storedNames[i];
         }
+
+
+      }
 
 
       //end of add highscore function
 
 
 
-//remove image of last enemy
+      //remove image of last enemy
       $(".img img:last-child").remove()
 
       playGame = false;
@@ -100,14 +102,29 @@ var highScore =0;//highscore
   }, 1000);
 
 
-  $('body,html').css("background-image", "url(img/stage.png)");
+
+  $('#bg').css("background-image", "url(img/stage.png)");
+  $('#bg').fadeIn();
 
 
-
+  //changes background image
   setInterval(function() {
 
+    setTimeout(function(){
+
+      $('#bg').css("background-image", "url(img/" + name + ".png)").fadeOut();
+
+
+
+  }, 8950);
+
     var name = stages[generateRandomForBG()];
-    $('body,html').css("background-image", "url(img/" + name + ".png)");
+    $('#bg').css("background-image", "url(img/" + name + ".png)").fadeIn();
+
+
+
+
+
 
 
   }, 9000)
@@ -156,7 +173,6 @@ var highScore =0;//highscore
   //sets value of imgaes and gos through them changing image file and position
   function setValue() {
     if (playGame == true) {
-      voice.play();
 
       $(".img img:last-child").remove()
       var num = container[generateRandomForArray()];
@@ -178,13 +194,13 @@ var highScore =0;//highscore
 
 
 
-//restart audio on click
+  //restart audio on click
   function audioPlay() {
-      if (snd.paused) {
-          snd.play();
-      }else{
-          snd.currentTime = 0
-      }
+    if (snd.paused) {
+      snd.play();
+    } else {
+      snd.currentTime = 0
+    }
   }
 
 
@@ -194,12 +210,11 @@ var highScore =0;//highscore
 
   //clicking on image gets score and removes picture of enemy
   img.click(function() {
-    audioPlay()//plays kill sound
+    audioPlay() //plays kill sound
 
-if (timeLeft ==0)
-{
-  playerScore =0;
-}
+    if (timeLeft == 0) {
+      playerScore = 0;
+    }
 
     playerScore++;
     score.html("<b  class='score'> Score: " + playerScore + " </b>");
@@ -215,16 +230,18 @@ if (timeLeft ==0)
 
 
 
-var timerId = 0;
+  var timerId = 0;
 
-function setResetInterval(bool){
+  function setResetInterval(bool) {
 
-  if(bool){
-timerId = setInterval(function() {setValue();}, 1000)
-  }else{
-    clearInterval(timerId);
+    if (bool) {
+      timerId = setInterval(function() {
+        setValue();
+      }, 1000)
+    } else {
+      clearInterval(timerId);
+    }
   }
-}
 
 
 
@@ -232,18 +249,19 @@ timerId = setInterval(function() {setValue();}, 1000)
 
 
 
-//set first highscore to 0
-//storedNames = highScore;
+  //set first highscore to 0
+  //storedNames = highScore;
 
 
-$('#test').append("<h1>"+storedNames+"</h1>")
+  $('#test').append("<h1>" + storedNames + "</h1>")
 
 
 
   //play button
   play.click(function() {
 
-
+    home.pause();
+    home.currentTime = 0;
 
 
 
@@ -254,7 +272,7 @@ $('#test').append("<h1>"+storedNames+"</h1>")
     score.html("<b  class='score'> Score: " + playerScore + " </b>");
 
 
-//play main audiom (overwatch win music)
+    //play main audiom (overwatch win music)
     audio.play();
 
 
@@ -268,13 +286,13 @@ $('#test').append("<h1>"+storedNames+"</h1>")
 
     } else {
       setResetInterval(false);
-playGame =false;
+      playGame = false;
 
     }
     playerScore = 0;
     timeLeft = 30;
     //does my main function for popping image up in interval
-var a =true;
+    var a = true;
 
     //close modal
     modal.style.display = "none";
@@ -317,11 +335,46 @@ var a =true;
 
 
 
-//clears leaderboard scores
-clearScore.click(function(){
-  localStorage.removeItem('names');
-  $('#test').html("");
+  //clears leaderboard scores
+  clearScore.click(function() {
+    localStorage.removeItem('names');
+    $('#test').html("");
 
-})
+  })
+
+  //if there are no scores stored in web browser memory. make sure null
+  //is not displayed on screen
+
+  if (storedNames === null) {
+    $('#test').html("").empty();
+  }
+
+  //gun shot
+
+  //only run when modal is modal is not visible
+
+
+  //restart audio on click
+  function shotPlay() {
+    if (shot.paused) {
+      shot.play();
+    } else {
+      shot.currentTime = 0
+    }
+  }
+
+  var ammo = 8;
+  var shot = new Audio("shot.mp3");
+  //click listener only runs its function if modal is not visible
+  document.body.addEventListener('click', function() {
+    if (modal.style.display == "none") {
+
+
+      shotPlay();
+
+    }
+  }, true);
+
+
 
 });

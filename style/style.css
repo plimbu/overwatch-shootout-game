@@ -1,5 +1,3 @@
-
-
 @font-face {
   font-family: 'bigNoodle';
   src: url('../fonts/font.eot') format('opentype');
@@ -16,7 +14,6 @@ img {
   )
 }
 
-
 body, html {
   font-family: 'bigNoodle', sans-serif;
   height: 100%;
@@ -26,21 +23,75 @@ body, html {
   user-select: none;
   overflow-x: hidden;
   overflow-y: hidden;
-}
-/* styling for clear score button */
-.clearScore
-{
-font-size: 20px
+
+    -webkit-transition: background-image 0.2s ease-in-out;
+    transition: background-image 0.2s ease-in-out;
+
+/* added code */
+
+
+
+    opacity: 0;
+
+
+    -webkit-transition: opacity 2s ease-in;
+       -moz-transition: opacity 2s ease-in;
+        -ms-transition: opacity 2s ease-in;
+         -o-transition: opacity 2s ease-in;
+            transition: opacity 2s ease-in;
+
+
+
+
+
+
+
 
 }
-.text
-{
+
+#blackBg {
+  background-color: #000000 ;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-position: center 0px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+#bg {
+  background-color: #000000;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-position: center 0px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+
+body, html.load {
+    opacity: 1;
+}
+
+
+/* styling for clear score button */
+
+.clearScore {
+  font-size: 20px
+}
+
+.text {
   font-size: 20px;
 }
 
-.mercy{
-height:100px;
-width:auto;
+.mercy {
+  height: 100px;
+  width: auto;
 }
 
 .HUD {
@@ -60,19 +111,14 @@ width:auto;
   z-index: -1;
 }
 
-
-
-
-
 .size {}
 
 .timer {
-  height:80px;
+  height: 80px;
 }
 
 .score {
-height:80px;
-
+  height: 80px;
 }
 
 /* make button transparent */
@@ -86,7 +132,6 @@ button {
   outline: none;
   font-family: 'bigNoodle', sans-serif;
   font-size: 80px;
-
 }
 
 .sizeInstructions {
@@ -119,8 +164,6 @@ button {
   opacity: 0.8;
   filter: alpha(opacity=90);
   /* For IE8 and earlier */
-
-
 }
 
 /* Modal Content */
@@ -131,8 +174,8 @@ button {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  background-image:url(../img/modal.gif);
-  background-size:cover;
+  background-image: url(../img/modal.gif);
+  background-size: cover;
   border-radius: 5%;
 }
 
@@ -151,18 +194,26 @@ button {
   cursor: pointer;
 }
 
-
-
-#button {border-radius: 10%;
-
+#button {
+  border-radius: 10%;
   opacity: 0.8;
   filter: alpha(opacity=90);
-  animation:buttons-animation 5s;
-    -webkit-animation:buttons-animation 5s infinite; /* Safari and Chrome */
+  animation: buttons-animation 5s;
+  -webkit-animation: buttons-animation 5s infinite;
+  /* Safari and Chrome */
 }
-@-webkit-keyframes buttons-animation
-{
-    30%   {background-color:orange;}
-    50%  {background-color:yellow;}
-    100% {background-color:orange;}
+
+@-webkit-keyframes buttons-animation {
+  30% {
+    background-color: orange;
+  }
+  50% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: orange;
+  }
 }
+
+
+/* fade in animation */

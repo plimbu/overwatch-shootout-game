@@ -60,6 +60,28 @@ button {
 }
 
 .sizeInstructions {
-  font-size: 50px;
+  font-size: 40px;
   text-decoration-color: orange;
+  text-align: left
+}
+
+#button {
+  border-radius: 2%;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  animation: buttons-animation 5s;
+  -webkit-animation: buttons-animation 5s infinite;
+  /* Safari and Chrome */
+}
+
+@-webkit-keyframes buttons-animation {
+  30% {
+    background-color: red;
+  }
+  50% {
+    background-color: red;
+  }
+  100% {
+    background-color: red;
+  }
 }
