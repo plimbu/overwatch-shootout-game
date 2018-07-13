@@ -14,11 +14,6 @@ img {
   )
 }
 
-body {
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
 body, html {
   font-family: 'bigNoodle', sans-serif;
   height: 100%;
@@ -26,10 +21,81 @@ body, html {
   background-size: cover;
   cursor: crosshair;
   user-select: none;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+    -webkit-transition: background-image 0.2s ease-in-out;
+    transition: background-image 0.2s ease-in-out;
+
+/* added code */
+
+
+
+    opacity: 0;
+
+
+    -webkit-transition: opacity 2s ease-in;
+       -moz-transition: opacity 2s ease-in;
+        -ms-transition: opacity 2s ease-in;
+         -o-transition: opacity 2s ease-in;
+            transition: opacity 2s ease-in;
+
+
+
+
+
+
+
+
+}
+
+#blackBg {
+  background-color: #000000 ;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-position: center 0px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+#bg {
+  background-color: #000000;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-position: center 0px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+
+body, html.load {
+    opacity: 1;
+}
+
+
+/* styling for clear score button */
+
+.clearScore {
+  font-size: 20px
+}
+
+.text {
+  font-size: 20px;
+}
+
+.mercy {
+  height: 100px;
+  width: auto;
 }
 
 .HUD {
-  font-size: 50px;
+  font-size: 60px;
 }
 
 /* center text with this class */
@@ -47,14 +113,18 @@ body, html {
 
 .size {}
 
-.timer {}
+.timer {
+  height: 80px;
+}
 
-.score {}
+.score {
+  height: 80px;
+}
 
 /* make button transparent */
 
 button {
-  background-color: Transparent;
+  background-color: transparent;
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
@@ -104,6 +174,9 @@ button {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  background-image: url(../img/modal.gif);
+  background-size: cover;
+  border-radius: 5%;
 }
 
 /* The Close Button */
@@ -120,3 +193,27 @@ button {
   text-decoration: none;
   cursor: pointer;
 }
+
+#button {
+  border-radius: 10%;
+  opacity: 0.8;
+  filter: alpha(opacity=90);
+  animation: buttons-animation 5s;
+  -webkit-animation: buttons-animation 5s infinite;
+  /* Safari and Chrome */
+}
+
+@-webkit-keyframes buttons-animation {
+  30% {
+    background-color: orange;
+  }
+  50% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: orange;
+  }
+}
+
+
+/* fade in animation */
